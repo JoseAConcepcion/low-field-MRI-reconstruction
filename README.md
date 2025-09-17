@@ -1,17 +1,33 @@
-# low-field-MRI-reconstruction
-This is part of my work for my bachelor thesis.
+# Informe corto sobre el repositorio `low-field-MRI-reconstruction`
 
-A WaCAEN model trained to deal with aliasing and blurring in Low-Field MRI.
+## Descripción general
 
-## Results on validation set for Aliasing
-![aliasing prediction](/graphics/aliasing_results_val.png)
+Este proyecto implementa técnicas avanzadas para la reconstrucción de imágenes de resonancia magnética (MRI) adquiridas en equipos de bajo campo. El objetivo principal es mejorar la calidad de las imágenes que suelen ser borrosas o de baja resolución debido a las limitaciones de hardware en ese tipo de equipos.
 
-## Results on validation set for Blurring
-![blurring prediction](/graphics/blurr_results_val.png)
+## ¿Qué hace el proyecto según el código?
 
-## Results on Low-Field MRI from a Cuban Hospital
-These pictures were taken in a Cuban Hospital and were not part of the training dataset. 
-The model shows some great results recovering images afected by blurring.
- 
-![aliasing prediction low-field](/graphics/aliasing_low_field_results.png)
-![blurring prediction low-field](/graphics/blurr_low_field_results.png)
+- **Procesamiento de imágenes:** Utiliza transformadas wavelet para descomponer imágenes MRI en componentes de aproximación y detalles, permitiendo el análisis y manipulación de la información espacial (archivos como `check.py` y `check2.py`).
+
+- **Reconstrucción automática:** Implementa modelos de redes neuronales profundas (CNN, autoencoders y modelos híbridos como WaCAEN) para restaurar imágenes MRI a partir de versiones degradadas, incrementando la nitidez y la información visual recuperada (`predict_new.py`, `predict_ssim.py`).
+
+- **Evaluación cuantitativa:** Calcula métricas como PSNR, SSIM, MS-SSIM, VIFP, MSE, RMSE, SCC, RASE, SAM para comparar la calidad de la imagen reconstruida frente a la imagen objetivo o referencia. Los resultados se pueden guardar en archivos PDF o tablas Markdown para análisis posterior (`new_statistics.py`).
+
+- **Automatización y experimentación:** El proyecto permite el procesamiento por lotes de imágenes en carpetas específicas, genera informes de comparación y facilita la experimentación eliminando o modificando componentes específicos de la imagen (detalles horizontales, verticales, diagonales).
+
+## Componentes clave
+
+- **Transformada wavelet:** Descomposición y reconstrucción de imágenes para extraer y modificar detalles espaciales.
+- **Redes neuronales profundas:** Modelos entrenados para restaurar imágenes de baja calidad.
+- **Evaluación con métricas estándar:** PSNR, SSIM, VIFP, entre otros.
+- **Generación de informes automáticos:** PDF y CSV para comparar resultados y documentar experimentos.
+
+## Aplicación
+
+Este código es útil para investigadores o profesionales que trabajan con imágenes médicas de bajo campo y buscan maximizar la información diagnóstica mediante técnicas de restauración computacional.
+
+
+---
+
+# README del repositorio `low-field-MRI-reconstruction`
+
+Este repositorio contiene el código y los recursos para realizar la reconstrucción de imágenes de resonancia magnética (MRI) adquiridas en equipos de bajo campo. El enfoque principal es mejorar la calidad de las imágenes y facilitar su análisis mediante diversas técnicas de procesamiento y evaluación.
